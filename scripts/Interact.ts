@@ -1,20 +1,16 @@
 import { ethers } from "hardhat";
-import { BaseScript } from "./BaseScript"; // Adjust the import path as necessary
+import { BaseScript } from "./BaseScript";
 
 class Interact extends BaseScript {
 
     async main() {
-        const contractAddress = process.env.CONTRACT_ADDRESS;
-
-        if (!contractAddress) {
-            console.error("Error: CONTRACT_ADDRESS environment variable not set.");
-            process.exit(1);
-        }
+        const contractAddress = this.getEnvVariable(`CONTRACT_ADDRESS`);
+        const valueToSet = this.getEnvVariable(`VALUE`);
 
         const Contract = await ethers.getContractFactory("GetterSetter");
         const contract = Contract.attach(contractAddress);
 
-        const setValueTx = await contract.setValue(process.env.VALUE || "0");
+        const setValueTx = await contract.setValue(valueToSet);
         await setValueTx.wait();
 
         const value = await contract.getValue();

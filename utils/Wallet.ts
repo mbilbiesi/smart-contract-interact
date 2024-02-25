@@ -25,7 +25,7 @@ class Wallet {
         try {
             const balanceWei = await this.web3.eth.getBalance(walletAddress);
             const balanceEther = this.web3.utils.fromWei(balanceWei, 'ether');
-            console.log(`Balance for ${walletAddress}: ${balanceEther} ETH`);
+            console.info(`Balance for ${walletAddress}: ${balanceEther} ETH`);
             return balanceEther;
         } catch (error) {
             console.error("Error fetching balance:", error);
