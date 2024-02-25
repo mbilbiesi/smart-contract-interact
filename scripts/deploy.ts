@@ -1,27 +1,25 @@
 import { ethers } from "hardhat";
+import {JsonHelper} from "../utils/JsonHelper";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const [deployer] = await ethers.getSigners();
+  console.log("deployer address:", deployer.address);
 
-  const lockedAmount = ethers.parseEther("0.001");
+  const GetterSetterContract = await ethers.getContractFactory("GetterSetter");
+  const getterSetterContract = await GetterSetterContract.deploy();
+  await getterSetterContract.waitForDeployment();
+  const getterSetterDeployedAddress = await getterSetterContract.getAddress();
 
-  const lock = await ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
+  console.log("contract address:", getterSetterDeployedAddress);
+
+  const jsonHelper = new JsonHelper('output.json');
+  jsonHelper.writeOrUpdateJson({
+    deployer_address: deployer.address,
+    contract_address: getterSetterDeployedAddress,
   });
-
-  await lock.waitForDeployment();
-
-  console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-  );
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main().catch((error) => {
   console.error(error);
-  process.exitCode = 1;
+  process.exit(1);
 });
