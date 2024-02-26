@@ -1,13 +1,13 @@
 import Web3 from 'web3';
 
-const web3 = new Web3('https://sepolia.infura.io/v3/2afe580f3e47456e8ea7a4d1bee3d063');
+const web3 = new Web3(`https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`);
 
 interface Account {
     address: string;
     privateKey: string;
 }
 
-class Wallet {
+export class Wallet {
     private web3: Web3;
 
     constructor(web3Instance: Web3) {
@@ -36,7 +36,7 @@ class Wallet {
 
 async function main(): Promise<void> {
     const wallet = new Wallet(web3);
-    const account = wallet.generateWallet();
+    wallet.generateWallet();
 }
 
 main().catch(error => console.error(error));
