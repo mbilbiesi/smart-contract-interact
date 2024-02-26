@@ -28,7 +28,6 @@ export class JsonHelper {
 
         try {
             fs.writeFileSync(this.filePath, JSON.stringify(updatedData, null, 2));
-            console.info(`${this.filename} is successfully created/updated`);
         } catch (error) {
             console.error(`Error in writing "${this.filename}" JSON file:\n`, error);
         }

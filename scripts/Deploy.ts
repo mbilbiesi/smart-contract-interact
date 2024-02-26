@@ -9,8 +9,6 @@ class Deploy extends BaseScript {
     await getterSetterContract.waitForDeployment();
     const getterSetterDeployedAddress = await getterSetterContract.getAddress();
 
-    console.info("Contract address is created");
-
     this.jsonHelper.writeOrUpdateJson({
       deployer_address: deployer.address,
       contract_address: getterSetterDeployedAddress,
