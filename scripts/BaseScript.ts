@@ -4,7 +4,7 @@ export abstract class BaseScript {
     protected jsonHelper: JsonHelper;
 
     constructor() {
-        this.jsonHelper = new JsonHelper('output.json');
+        this.jsonHelper = new JsonHelper('../output/output.json');
     }
 
     protected getEnvVariable(name: string): string {
