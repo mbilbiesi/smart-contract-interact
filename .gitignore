@@ -5,6 +5,7 @@ node_modules
 dist
 .env
 package-lock.json
+output/output.json
 
 # Hardhat files
 /cache
