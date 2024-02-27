@@ -12,6 +12,22 @@ describe('Getter & Setter Contract Tests', () => {
     await myContract.waitForDeployment();
   });
 
+  it('Should update the value consistently on sequential calls', async () => {
+    // When
+    const firstUpdateValue = 654;
+    await myContract.setValue(firstUpdateValue);
+
+    // Then
+    expect(await myContract.getValue(), 'value is not updated').to.equal(firstUpdateValue);
+
+    // When
+    const secondUpdateValue = 9876;
+    await myContract.setValue(secondUpdateValue);
+
+    //Then
+    expect(await myContract.getValue(), 'value is not updated').to.equal(secondUpdateValue);
+  });
+
   it('Should correctly handle boundary values', async () => {
     //When
     const minBoundary = 0;
