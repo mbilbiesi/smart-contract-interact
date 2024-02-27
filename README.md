@@ -7,8 +7,8 @@ This project guide details the steps required to deploy and interact with a smar
 
 Before you begin, ensure you have the following:
 
-- Node.js v20.11.1 installed on your machine.
-- Docker and Docker-compose installed (if you plan to use Docker).
+- Node.js v20.11.1 installed (if you plan to run locally).
+- Docker and Docker-compose installed (if you plan to run using Docker).
 
 ### Configuration
 
@@ -92,7 +92,7 @@ Execute the following command to run tests:
 npx hardhat test
 ```
 
-## Thanks 
+## Thanks :blue_heart:
 
 Thank you for this opportunity to explore new technologies and libraries. This experience has been both exciting and educational.
 
