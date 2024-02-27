@@ -1,0 +1,32 @@
+{
+  "name": "mazen-bilbeisi-qa-assessment",
+  "version": "1.0.0",
+  "description": "This is a sample project to solve an interview assessment",
+  "scripts": {
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@types/chai": "^4.3.12",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.20",
+    "chai": "^4.4.1",
+    "dotenv": "^16.4.5",
+    "eslint-plugin-prettier": "^5.1.3",
+    "ethers": "^6.11.1",
+    "gts": "^5.2.0",
+    "hardhat": "^2.20.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "web3": "^4.5.0"
+  }
+}

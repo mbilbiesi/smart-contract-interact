@@ -1,0 +1,7 @@
+services:
+  qa-assessment:
+    build: .
+    volumes:
+      - ./output:/output
+    entrypoint: ["/bin/bash"]
+
