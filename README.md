@@ -1,4 +1,4 @@
-# Mazen Bilbeisi - interview assessment
+# Smart Contract - Interaction
 
 
 This project guide details the steps required to deploy and interact with a smart contract using Hardhat, an Ethereum development environment. It covers setting up the environment, deploying the contract, and interacting with it both locally and using Docker.
